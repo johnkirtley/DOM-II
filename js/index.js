@@ -9,6 +9,7 @@ const headingTwo = document.querySelectorAll('h2');
 const headingFour = document.querySelectorAll('h4');
 const destination = document.querySelector('.destination');
 const navLinks = document.querySelectorAll('a');
+const body = document.querySelector('body');
 
 // EVENT 1
 mapImg.addEventListener('click', function () {
@@ -88,5 +89,15 @@ headingFour.forEach(i => {
 navLinks.forEach(i => {
     i.addEventListener('click', () => {
         event.preventDefault();
+    })
+})
+
+// GREENSOCK EVENTS
+body.addEventListener('click', () => {
+    document.querySelector('h1').style.color = 'red';
+    gsap.to("h1", {
+        rotateX: 180,
+        yoyo: true,
+        repeat: 1
     })
 })
