@@ -6,6 +6,9 @@ const images = document.querySelectorAll('img');
 const buttons = document.querySelectorAll('.btn');
 const nav = document.querySelector('.nav');
 const headingTwo = document.querySelectorAll('h2');
+const headingFour = document.querySelectorAll('h4');
+const destination = document.querySelector('.destination');
+const navLinks = document.querySelectorAll('a');
 
 // EVENT 1
 mapImg.addEventListener('click', function () {
@@ -66,5 +69,24 @@ images.forEach(i => {
 headingTwo.forEach(i => {
     i.addEventListener('copy', () => {
         alert('You just copied some text!')
+    })
+})
+
+// EVENT PROPAGATION
+destination.addEventListener('click', () => {
+    destination.style.backgroundColor = 'green';
+})
+
+headingFour.forEach(i => {
+    i.addEventListener('click', () => {
+        i.style.color = 'red';
+        event.stopPropagation();
+    })
+})
+
+// PREVENT DEFAULT
+navLinks.forEach(i => {
+    i.addEventListener('click', () => {
+        event.preventDefault();
     })
 })
